@@ -1,0 +1,10 @@
+1.Title Page			already done
+2.Game Story & Flow		Andrew
+3.Character(s) & Controls	Kelsey
+4.Gameplay 			Gavin
+5.Game World			Kelsey
+6.Game Experience		Kelsey
+7.Gameplay Mechanics		Gavin
+8.Enemies & Bosses		Andrew
+9.Game Shell			Gavin
+10.Miscellaneous
