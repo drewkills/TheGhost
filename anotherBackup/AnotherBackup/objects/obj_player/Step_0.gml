@@ -132,7 +132,7 @@ if(!global.pause){
 			}
 		}
 	}else if(state == 1){
-		if(!place_meeting(x,y,obj_ladder)){
+		if(!place_meeting(x,y,obj_ladder) || place_meeting(x,y+1,obj_wall)){
 			state = 0;
 		}
 	}
