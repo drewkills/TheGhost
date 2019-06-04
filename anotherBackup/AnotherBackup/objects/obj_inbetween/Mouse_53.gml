@@ -3,14 +3,14 @@
 switch(select){
 	case 0:
 		if(global.money >= 200){
-			global.ammo[1] = global.ammo[1]+5;
+			global.ammo[1] = global.ammo[1]+10;
 			global.money -= 200;
 		}
 		break;
 	case 1:
-		if(global.money >= 200){
+		if(global.money >= 150){
 			global.ammo[0] = global.ammo[0]+10;
-			global.money -= 200;
+			global.money -= 150;
 		}
 		break;
 	case 2:

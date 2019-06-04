@@ -54,6 +54,21 @@ if(instance_exists(global.m)){
 #region move towards next node
 var s = 0;
 dist = 1000;
+
+
+if(path != []){
+	for(var q = 1; q < array_length_1d(path); q++){
+		var p = path[q];
+		var p1 = path[q-1];
+		if(collision_line(p.x, p.y, p1.x, p1.y, id, false, false)){
+			target = p;
+		}
+	}
+}
+
+
+
+/*
 target = -4;
 if(path != []){
 	for(var i = array_length_1d(path)-1; i >= 0; i--){
@@ -69,6 +84,10 @@ if(path != []){
 		}
 	}
 }
+*/
+
+
+
 if(instance_exists(target)){
 	dir = sign(target.x-x);
 	if(dir == 0){dir = 1;}

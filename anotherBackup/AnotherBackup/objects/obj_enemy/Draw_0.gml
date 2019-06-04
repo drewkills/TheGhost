@@ -27,3 +27,13 @@ if(spotted){
 }
 
 draw_sprite_ext(spr_gun,gun,x+lengthdir_x(48,gDir),y+lengthdir_y(48,gDir),1,dir,gDir,c_white,1);
+
+if(instance_exists(target)){
+	draw_line_width_color(x,y,target.x,target.y,4,c_blue,c_blue);
+}
+
+if(!is_undefined(path)){
+	for(var i = 0; i < array_length_1d(path)-1; i++){
+		draw_arrow(path[i].x,path[i].y,path[i+1].x,path[i+1].y,10);
+	}
+}

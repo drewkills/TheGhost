@@ -5,8 +5,8 @@ if(keyboard_check_pressed(vk_escape)){
 }
 if(instance_exists(obj_player)){
 	if(global.scope && obj_player.gun == 1){
-		xx = min(max(0,((obj_player.x*2+mouse_x)/3)-960),room_width-1920);
-		yy = min(max(0,((obj_player.y*2+mouse_y)/3)-540),room_height-1080);
+		xx = min(max(0,((obj_player.x+mouse_x)/2)-960),room_width-1920);
+		yy = min(max(0,((obj_player.y+mouse_y)/2)-540),room_height-1080);
 	}else{
 		xx = min(max(0,obj_player.x-960),room_width-1920);
 		yy = min(max(0,obj_player.y-540),room_height-1080);
@@ -46,3 +46,11 @@ if(global.hp <= 0 && instance_exists(obj_player)){
 if(beaten){
 	global.hp = hpFin;
 }
+
+
+
+#region debug
+if(keyboard_check_pressed(ord("N"))){
+	instance_destroy(obj_target);
+}
+#endregion

@@ -11,7 +11,7 @@ cspd = 5;
 xx = x;
 yy = y;
 
-gun = 0;
+gun = 1;
 
 dRand = [8,0.5]
 

@@ -1,5 +1,5 @@
-var s = 160;
-for(var i = 0; i < 25; i++){
+var s = 200;
+for(var i = 0; i < 40; i++){
 	instance_create_layer(x+irandom_range(-s,s), y+irandom_range(-s,s), "Explosions", obj_explosion)
 }
 

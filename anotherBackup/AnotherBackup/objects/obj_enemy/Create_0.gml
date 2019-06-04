@@ -39,3 +39,5 @@ frame = 0;
 sprites = [spr_foot, spr_eBody, spr_eHead];
 type = obj_enemy;
 gun = 0;
+
+path = [];
