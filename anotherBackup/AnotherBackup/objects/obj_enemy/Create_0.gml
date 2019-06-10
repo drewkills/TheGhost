@@ -39,3 +39,5 @@ type = obj_enemy;
 gun = 0;
 
 path = [];
+
+sDelay = 0;

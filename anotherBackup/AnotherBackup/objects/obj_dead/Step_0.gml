@@ -3,4 +3,4 @@
 
 
 
-select = round((mouse_y+16) / 64)-9
+select = round((mouse_y-(room_height/2)-32) / 67)

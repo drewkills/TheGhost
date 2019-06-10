@@ -89,7 +89,7 @@ if(!global.pause){
 		if(sign(obj_player.x-x) == dir){
 			var d = point_direction(x,y,obj_player.x,obj_player.y);
 			if(!collision_line(x,y,obj_player.x,obj_player.y,obj_solid,false,true) && point_distance(x,y,obj_player.x,obj_player.y) < 800){
-				addTask(0,50,240,[obj_player.x,obj_player.y]);
+				addTask(0,50,300,[obj_player.x,obj_player.y]);
 			}
 		}
 	}
@@ -111,7 +111,6 @@ if(!global.pause){
 
 	#endregion
 
-
 	if(dir == 0){dir = 1;}
 
 	reload = max(0,reload-1);
@@ -119,5 +118,19 @@ if(!global.pause){
 	#region animation
 	var a = global.animations[0]
 	frame = (frame + 0.5) % array_length_1d(a);
+	#endregion
+	
+	#region fire gun
+	if(sDelay == 1){
+		audio_play_sound(snd_pistol,0,0);
+		var d = 1;
+		if(gDir > 90 && gDir < 270){d = -1;} 
+		var b = instance_create_depth(x+lengthdir_x(128,gDir-d*4),y+lengthdir_y(128,gDir-d*4),0,obj_bullet_enemy);
+		b.dir = gDir + random_range(-7,7);
+		b.image_angle = gDir;
+		reload = dReload;
+		obj_control.sShake += 4;
+	}
+	sDelay = max(0,sDelay-1);
 	#endregion
 }

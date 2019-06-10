@@ -18,7 +18,7 @@ dRand = [8,0.5]
 rOnGround = 0;
 
 reloads = [0,0];
-dReloads = [30,120];
+dReloads = [30,80];
 snds = [snd_pistol,snd_sniper]
 
 state = 0;
@@ -35,3 +35,4 @@ gl = [40,120]
 
 alarm[0] = 5;
 canShoot = false;
+mDir = 0;

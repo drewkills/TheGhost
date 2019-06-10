@@ -4,7 +4,7 @@
 // Inherit the parent event
 event_inherited();
 
-hp = 5;
+hp = 2;
 
 sprites = [spr_aFoot, spr_aBody, spr_aHead];
 

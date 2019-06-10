@@ -46,11 +46,3 @@ if(global.hp <= 0 && instance_exists(obj_player)){
 if(beaten){
 	global.hp = hpFin;
 }
-
-
-
-#region debug
-if(keyboard_check_pressed(ord("N"))){
-	instance_destroy(obj_target);
-}
-#endregion

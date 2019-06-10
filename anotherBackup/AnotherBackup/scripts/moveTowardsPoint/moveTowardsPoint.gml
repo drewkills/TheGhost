@@ -89,11 +89,13 @@ if(path != []){
 
 
 if(instance_exists(target)){
+	var td = dir;
 	dir = sign(target.x-x);
 	if(dir == 0){dir = 1;}
 	if(target.y < y && place_meeting(x,y,obj_ladder)){
 		if(type != obj_aEnemy){
 			key_up = true;
+			dir = 0;
 		}
 	}else if(place_meeting(x+dir*64,y,obj_solid) || !position_meeting(x+dir*32,y+100,obj_solid)){
 		if(target.y - 32 < y){

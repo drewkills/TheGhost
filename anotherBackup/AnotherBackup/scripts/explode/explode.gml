@@ -4,7 +4,7 @@ global.temp = id;
 with(obj_enemy){
 	var t = global.temp;
 	if(point_distance(x,y,t.x,t.y) < 2000){
-		addTask(0,20,120,[t.x+irandom_range(-128,128),t.y+irandom_range(-128,128)]);
+		addTask(1,20,120,[t.x+irandom_range(-128,128),t.y+irandom_range(-128,128)]);
 	}
 }
 #endregion

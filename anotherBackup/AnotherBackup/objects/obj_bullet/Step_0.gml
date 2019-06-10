@@ -22,7 +22,15 @@ if(!global.pause){
 		audio_play_sound(snd_enemyHit,0,0);
 		var e = instance_nearest(x+hsp/2,y+vsp/2,obj_enemy);
 		if(y+vsp < e.y+16 || y < e.y+16){
+			if(instance_exists(obj_aEnemy)){
+				if(e ==  instance_nearest(x+hsp/2,y+vsp/2,obj_aEnemy)){
+					e.hp--;
+				}else{
+					e.hp = 0;
+				}
+			}else{
 				e.hp = 0;
+			}
 		}else{
 			if(instance_exists(obj_aEnemy)){
 				if(e !=  instance_nearest(x+hsp/2,y+vsp/2,obj_aEnemy)){

@@ -11,6 +11,7 @@ if(!global.pause){
 	key_up = keyboard_check(ord("W")) || keyboard_check(vk_up);
 	key_up_pressed = keyboard_check_pressed(ord("W")) || keyboard_check_pressed(vk_up);
 	key_down = keyboard_check(ord("S")) || keyboard_check(vk_down);
+	key_melee = keyboard_check_pressed(ord("F"));
 	#endregion
 
 	dir = point_direction(x,y,mouse_x,mouse_y);
@@ -86,29 +87,33 @@ if(!global.pause){
 
 	#region guns
 	if(state == 0){
-		global.scope = key_scope;
-		if(key_shoot){
-			if(reloads[gun] <= 0){
-				if(global.ammo[gun] > 0){
-					var d = 1;
-					if(dir > 90 && dir < 270){d = -1;} 
-					if(!collision_line(x,y,x+lengthdir_x(128,dir-d*4),y+lengthdir_y(128,dir-d*4),obj_solid,false,true)){
-						var b = instance_create_depth(x+lengthdir_x(128,dir-d*4),y+lengthdir_y(128,dir-d*4),0,obj_bullet);
-						b.dir = dir + random_range(-dRand[gun],dRand[gun]);
-						b.image_angle = dir;
-					}
-					reloads[gun] = dReloads[gun];
-					audio_play_sound(snds[gun],0,0);
-					obj_control.sShake += 5;
-					with(obj_enemy){
-						if(point_distance(x,y,obj_player.x,obj_player.y) < 512){
-							addTask(0,50,60,[obj_player.x+irandom_range(-128,128),obj_player.y+irandom_range(-128,128)]);
+		if(!instance_exists(obj_melee)){
+			global.scope = key_scope;
+			if(key_shoot){
+				if(reloads[gun] <= 0){
+					if(global.ammo[gun] > 0){
+						var d = 1;
+						if(dir > 90 && dir < 270){d = -1;} 
+						if(!collision_line(x,y,x+lengthdir_x(128,dir-d*4),y+lengthdir_y(128,dir-d*4),obj_solid,false,true)){
+							var b = instance_create_depth(x+lengthdir_x(128,dir-d*4),y+lengthdir_y(128,dir-d*4),0,obj_bullet);
+							b.dir = dir + random_range(-dRand[gun],dRand[gun]);
+							b.image_angle = dir;
 						}
+						reloads[gun] = dReloads[gun];
+						audio_play_sound(snds[gun],0,0);
+						obj_control.sShake += 5;
+						with(obj_enemy){
+							if(point_distance(x,y,obj_player.x,obj_player.y) < 512){
+								addTask(0,50,60,[obj_player.x+irandom_range(-128,128),obj_player.y+irandom_range(-128,128)]);
+							}
+						}
+						global.ammo[gun] = global.ammo[gun] - 1;
+						shot = 3;
 					}
-					global.ammo[gun] = global.ammo[gun] - 1;
-					shot = 3;
 				}
 			}
+		}else{
+			global.scope = false;
 		}
 		reloads[gun] = max(0, reloads[gun]-1);
 
@@ -122,6 +127,23 @@ if(!global.pause){
 	}
 	
 	shot = max(0, shot-1);
+	
+	
+	if(key_melee && !instance_exists(obj_melee)){
+		var d = 1;
+		mDir = 330;
+		if(dir > 90 && dir < 270){d = -1; mDir = 210} 
+		instance_create_depth(x+d*64,y,0,obj_melee)
+		
+	}
+	if(instance_exists(obj_melee)){
+		if(mDir < 90 || mDir > 270){
+			mDir += 5;
+		}else{
+			mDir -= 5;
+		}
+		dir = mDir;
+	}
 	#endregion
 
 	#region climb ladder

@@ -39,14 +39,9 @@ if(c != -1){
 					dir = sign(obj_player.x - x);
 					#region fire gun
 					if(reload <= 0 && !key_up){
-						audio_play_sound(snd_pistol,0,0);
-						var d = 1;
-						if(gDir > 90 && gDir < 270){d = -1;} 
-						var b = instance_create_depth(x+lengthdir_x(128,gDir-d*4),y+lengthdir_y(128,gDir-d*4),0,obj_bullet_enemy);
-						b.dir = gDir + random_range(-3,3);
-						b.image_angle = gDir;
-						reload = dReload;
-						obj_control.sShake += 4;
+						if(sDelay == 0){
+							sDelay = 6;
+						}
 					}
 					#endregion
 				}
