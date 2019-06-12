@@ -35,4 +35,6 @@ gl = [40,120]
 
 alarm[0] = 5;
 canShoot = false;
+
 mDir = 0;
+mFrame = 0;

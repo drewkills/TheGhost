@@ -129,20 +129,30 @@ if(!global.pause){
 	shot = max(0, shot-1);
 	
 	
-	if(key_melee && !instance_exists(obj_melee)){
+	if(key_melee && !instance_exists(obj_melee) && state == 0){
 		var d = 1;
-		mDir = 330;
-		if(dir > 90 && dir < 270){d = -1; mDir = 210} 
+		mDir = 30;
+		if(dir > 90 && dir < 270){d = -1; mDir = 150} 
+		mFrame = 4;
 		instance_create_depth(x+d*64,y,0,obj_melee)
 		
 	}
 	if(instance_exists(obj_melee)){
 		if(mDir < 90 || mDir > 270){
-			mDir += 5;
+			if(mFrame == 0){
+				mDir -= 12;
+			}else{
+				mDir += 6;
+			}
 		}else{
-			mDir -= 5;
+			if(mFrame == 0){
+				mDir += 12;
+			}else{
+				mDir -= 6;
+			}
 		}
 		dir = mDir;
+		mFrame = max(0,mFrame-1);
 	}
 	#endregion
 

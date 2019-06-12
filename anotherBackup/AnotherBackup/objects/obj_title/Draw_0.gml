@@ -3,18 +3,14 @@
 
 draw_set_halign(fa_center);
 
-
-draw_set_font(fnt_deadM);
-draw_text(room_width/2,room_height/3,"The Ghost");
+draw_sprite(spr_ghost,0,room_width/2,room_height/4);
 
 
 draw_set_font(fnt_main);
 for(var i = 0; i < array_length_1d(options); i++){
-	var o = 0;
-	var p = "";
+	var p = 0;
 	if(i == select){
-		o = 0;
-		p = ">"
+		p = 1;
 	}
-	draw_text(room_width/2+o,room_height/2+i*64,p+options[i]);
+	draw_sprite(options[i],p,(room_width/2),(room_height/5)*2+i*128);
 }

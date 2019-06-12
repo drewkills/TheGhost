@@ -3,3 +3,5 @@
 stuck = false;
 
 timer = 600;
+
+if(global.cleanMode == true){image_index = 1;}

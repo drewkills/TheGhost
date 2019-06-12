@@ -2,6 +2,6 @@
 // You can write your code in this editor
 alarm[0] = 60;
 
-options = [spr_restart_button,spr_quit_button];
+options = [spr_restart,spr_quit];
 
 select = 0;

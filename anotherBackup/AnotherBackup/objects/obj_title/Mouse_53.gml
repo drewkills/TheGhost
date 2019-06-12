@@ -8,6 +8,9 @@ switch(select){
 		room_goto(rm_scores);
 		break;
 	case 2:
+		room_goto(rm_settings);
+		break;
+	case 3:
 		game_end();
 		break;
 }

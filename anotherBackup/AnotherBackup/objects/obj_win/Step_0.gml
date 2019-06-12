@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in ths editor
 
-if(string_length(name) < 20){
+if(string_length(name) < 10){
 	for(var i = 0; i < string_length(letters); i++){
 		if(keyboard_check_pressed(ord(string_char_at(letters,i)))){
 			name = name + string_char_at(letters,i);

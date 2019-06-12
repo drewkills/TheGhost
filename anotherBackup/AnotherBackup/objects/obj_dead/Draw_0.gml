@@ -17,5 +17,5 @@ for(var i = 0; i < array_length_1d(options); i++){
 		o = 0;
 		p = 1;
 	}
-	draw_sprite(options[i],p,room_width/2+o,room_height/2+i*67);
+	draw_sprite(options[i],p,room_width/2+o,room_height/2+i*128);
 }
